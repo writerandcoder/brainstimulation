@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Stimulation App</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CJR7KVFVQM"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-F70H7CX161');
+</script>
+<body><style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-weight: 600;
+            background: linear-gradient(rgb(255, 255, 255),rgb(247, 240, 240),rgb(234, 233, 233), rgb(238, 233, 233));
+            color: #ff0000 !important;
+            border-color: #ff0000 !important;
+    
+
+        }
+        .centered-content {
+            background-image: url('wave.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+            text-align: center; /* Center the content inside the div */
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hidden {
+            display: none;
+        }
+        input, select {
+            color: rgb(253, 11, 11) !important;
+            border-color: #ffffff !important;
+            accent-color: #ff0000;
+            font-size: 28px;
+            font-weight: 900;
+            border-radius: 8px;
+            text-align: center;
+            padding: 8px;
+            margin: 16px;
+            background: radial-gradient(rgba(247, 244, 244, 0.705), rgba(248, 241, 241, 0.765));
+        }
+        .button {
+           cursor: pointer;
+           border: solid 1px rgb(255, 255, 255);
+          background: radial-gradient(rgb(246, 247, 244), rgb(248, 241, 241));
+            border-radius: 5px;
+            padding: 5px 10px;
+            color: #0a0a0a!important;
+        }
+        .button2 {
+           cursor: pointer;
+           border: solid 1px rgb(255, 255, 255);
+           background: radial-gradient(rgb(253, 3, 3), rgb(241, 54, 54));
+            border-radius: 5px;
+            padding: 5px 10px;
+            color: #ffffff!important;
+        }
+        .SO {
+           font-size: 60px;
+           cursor: pointer;
+         
+        }
+        .grey {
+            filter:   saturate(1%) contrast(100%);
+            opacity: 0.8;
+        }
+
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.beat {
+    display: inline-block;
+    animation: beat 1s infinite;
+}
+.fade {
+    border-radius: 50%;
+
+
+}
+
+
+      </style>
+
+
+
+
+
+<div class="centered-content">
+    <div id="botright" class="fade">
+ <span class="SO" id="beat"  onclick="stimulation();">⾳</span>
+        <br />   <br />
+
+        <select id="playlist">
+            <optgroup label="Tones">
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/1Hz-Delta--.mp3">Delta 1Hz 🕫 )</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/1.77Hz-Delta--.mp3">Delta 1.77Hz 🕫 ))))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/2.5Hz-Delta--.mp3">Delta 2.5Hz 🕫 )))))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/2.5-5Hz-Delta~Theta--.mp3">Delta/Theta 2.5/5Hz 🕫 ))))))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/5Hz-Theta--.mp3">Theta 5Hz 🕫 )))))))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/7Hz-Theta--.mp3">Theta 7Hz 🕫 )</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/10Hz-Alpha--.mp3" selected>Alpha 10Hz 🕫 )</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/12Hz-Alpha--.mp3">Alpha 12Hz 🕫 )))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/18Hz-Beta--.mp3">Beta 18Hz 🕫 ))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/27Hz-Beta--.mp3">Beta 27Hz 🕫 ))))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/40Hz-Gamma--.mp3">Gamma 40Hz 🕫 ))</option>
+                <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/70Hz-Gamma--.mp3">Gamma 70Hz 🕫 )</option>
+            </optgroup>
+            <optgroup label="Noise">
+            <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/Brownian-Noise--.mp3">Brown Noise 🕫 )))))))</option>
+            <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/Pink-Noise--.mp3">Pink Noise 🕫 ))))))</option>
+            <option value="https://rickybrowne.com/brainwaves/pure-brainwave-stimulation/White-Noise--.mp3">White Noise 🕫 ))))))))</option>
+            </optgroup>
+        </select><br /><a href="https://rickybrowne.com/brainwaves/" target="_blank" class="fade">
+            <button class="button2">ⓘ Brain Stimulation Selection Helper</button>
+        </a><br /><br />   <br /><br /> 
+        <span id="SO" class="SO" > 
+            <span id="playb" onclick="stimulation();">⯈</span>
+            <span id="stopb" class="hidden" onclick="stimulation();">◼</span>
+        </span> <br /><br /> <br /><br /> 
+            <a href="https://rickybrowne.com/" target="_blank" class="fade"><button class="button2">⾳
+                rickybrowne.com</button></a>      <br /><br /> <a href="https://www.audacityteam.org/"><button class="button">Tracks created with Audacity on Windows</button></a>  <br /> <br /> <a href="https://www.freepik.com/free-vector/sound-wave-equalizer-vector-design_3439275.htm#fromView=search&page=1&position=9&uuid=d0c820b9-fea7-4c6d-9df6-3674d21d03a0"><button class="button">BG by rawpixel.com</button></a> 
+ <audio id="player" controls class="hidden">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</div>
+<script src="stimulation.js"></script>
+
+</body>
+</html>
+
+
+
+
+
